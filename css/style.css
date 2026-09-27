@@ -175,3 +175,41 @@ td {
   text-align: center;
   font-weight: 600;
 }
+
+
+/* P04 - Form Kontak */
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  font: inherit;
+}
+
+fieldset {
+  margin: 0 0 16px;
+  padding: 12px;
+}
+
+fieldset label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+#preview-form {
+  padding: 16px;
+  white-space: pre-wrap;
+  background: white;
+  border: 1px solid #dccbbc;
+  overflow-wrap: anywhere;
+}
