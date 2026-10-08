@@ -1,13 +1,12 @@
-
 :root {
-  --color-primary: #6f3b1f;
-  --color-primary-strong: #4b2715;
-  --color-text: #2f2118;
-  --color-muted: #6b5b52;
+  --color-primary: #d63384;
+  --color-primary-strong: #b02a6f;
+  --color-text: #222222;
+  --color-muted: #666666;
   --color-surface: #ffffff;
-  --color-surface-soft: #fff8f0;
-  --color-border: #dccbbc;
-  --color-focus: #1d4ed8;
+  --color-surface-soft: #fff0f7;
+  --color-border: #f0bfd7;
+  --color-focus: #7c3aed;
 
   --space-1: 0.5rem;
   --space-2: 0.75rem;
@@ -17,7 +16,7 @@
 
   --radius-sm: 0.5rem;
   --radius-md: 0.875rem;
-  --shadow-card: 0 0.5rem 1.5rem rgb(47 33 24 / 0.1);
+  --shadow-card: 0 0.5rem 1.5rem rgb(214 51 132 / 0.15);
 }
 
 /* Pengaturan dasar */
@@ -109,35 +108,55 @@ a:hover {
   padding-block: var(--space-5);
 }
 
+/* Navigasi Flexbox */
+.nav {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  justify-content: space-between;
+}
+
 .brand {
   display: inline-block;
-  margin-bottom: var(--space-2);
+  margin-bottom: 0;
   color: var(--color-text);
   font-weight: 800;
   text-decoration: none;
 }
 
 .nav ul {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
 .nav li {
-  display: inline-block;
-  margin: 0 var(--space-2) var(--space-1) 0;
+  margin: 0;
+}
+
+/* Menu navigasi tetap hitam */
+.nav a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.nav a:hover {
+  color: var(--color-primary);
 }
 
 .nav a[aria-current="page"] {
   padding: var(--space-1) var(--space-2);
-  color: var(--color-primary-strong);
+  color: #000000;
   font-weight: 700;
   text-decoration: none;
-  background: #fef3c7;
+  background: #ffe0ed;
   border-radius: var(--radius-sm);
 }
 
-/* Hero dan tipografi */
+/* Hero */
 .hero {
   padding: var(--space-5);
   color: var(--color-surface);
@@ -169,7 +188,7 @@ li {
 }
 
 .hero .eyebrow {
-  color: #fef3c7;
+  color: #ffe0ed;
 }
 
 .price {
@@ -199,13 +218,13 @@ button:hover {
 }
 
 .hero button {
-  color: var(--color-text);
-  background: #fef3c7;
+  color: #000000;
+  background: #ffe0ed;
 }
 
 .hero button:hover {
-  color: var(--color-text);
-  background: #fde68a;
+  color: #000000;
+  background: #ffc2dc;
 }
 
 /* Daftar produk */
@@ -213,7 +232,7 @@ button:hover {
   padding-left: 1.2rem;
 }
 
-/* Kartu, tabel, dan form */
+/* Kartu */
 .product-card,
 .media-card,
 table,
@@ -226,36 +245,60 @@ form {
   box-shadow: var(--shadow-card);
 }
 
+/* Product Card Flexbox */
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Badge produk */
+.product-badge {
+  align-self: flex-start;
+  padding: 0.25rem var(--space-2);
+  color: var(--color-primary-strong);
+  font-size: 0.875rem;
+  font-weight: 800;
+  background: #ffe0ed;
+  border-radius: 999px;
+}
+
+/* Aksi kartu dengan Flexbox */
+.card-actions {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
 /* Galeri */
 .gallery-list {
   text-align: left;
 }
 
-figure {
-  margin: 1rem 0;
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
 }
 
-.gallery-list figure {
-  display: inline-block;
-  width: 180px;
-  margin: 0 16px 20px 0;
-  vertical-align: top;
-  text-align: center;
+.gallery-grid figure {
+  max-width: 100%;
+  margin: 0;
 }
 
-.gallery-list img {
+.gallery-grid img {
   display: block;
-  width: 180px;
-  height: 180px;
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
 }
-
 figcaption,
 caption {
   color: var(--color-muted);
 }
 
-.gallery-list figcaption {
+.gallery-grid figcaption {
   margin-top: 8px;
   font-weight: 600;
   text-align: center;
@@ -338,4 +381,28 @@ audio {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: var(--radius-md);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
 }
