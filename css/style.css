@@ -108,12 +108,12 @@ a:hover {
   padding-block: var(--space-5);
 }
 
-/* Navigasi Flexbox */
+/* Navigasi mobile-first */
 .nav {
   display: flex;
+  flex-direction: column;
   gap: var(--space-3);
-  align-items: center;
-  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .brand {
@@ -126,6 +126,7 @@ a:hover {
 
 .nav ul {
   display: flex;
+  flex-direction: column;
   gap: var(--space-2);
   flex-wrap: wrap;
   padding: 0;
@@ -137,7 +138,7 @@ a:hover {
   margin: 0;
 }
 
-/* Menu navigasi tetap hitam */
+/* Menu navigasi */
 .nav a {
   color: #000000;
   text-decoration: none;
@@ -262,7 +263,7 @@ form {
   border-radius: 999px;
 }
 
-/* Aksi kartu dengan Flexbox */
+/* Aksi kartu */
 .card-actions {
   display: flex;
   gap: var(--space-2);
@@ -278,7 +279,7 @@ form {
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--space-3);
 }
 
@@ -293,6 +294,7 @@ form {
   height: auto;
   border-radius: var(--radius-sm);
 }
+
 figcaption,
 caption {
   color: var(--color-muted);
@@ -326,6 +328,21 @@ td {
 
 th {
   background: var(--color-surface-soft);
+}
+
+/* Tabel yang bisa digeser pada layar kecil */
+.table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.table-scroll:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+.table-scroll table {
+  min-width: 40rem;
 }
 
 /* Form kontak */
@@ -383,9 +400,10 @@ audio {
   border-radius: var(--radius-sm);
 }
 
+/* Layout mobile-first */
 .hero {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: 1fr;
   gap: var(--space-4);
   align-items: center;
 }
@@ -397,12 +415,41 @@ audio {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   gap: var(--space-3);
 }
 
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-3);
+/* Tablet kecil: mulai 42rem */
+@media (min-width: 42rem) {
+  .nav ul {
+    flex-direction: row;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Tablet: mulai 48rem */
+@media (min-width: 48rem) {
+  .hero {
+    grid-template-columns: 1.2fr 0.8fr;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Desktop: mulai 60rem */
+@media (min-width: 60rem) {
+  .nav {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }

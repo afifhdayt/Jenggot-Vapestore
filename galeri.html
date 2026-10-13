@@ -1,111 +1,106 @@
 <!doctype html>
 <html lang="id">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Galeri - Jenggot Vapestore Sragi</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Galeri - Jenggot Vapestore Sragi</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- Skip link -->
+    <a class="skip-link" href="#konten">Lewati ke konten utama</a>
 
-  <!-- Skip link -->
-  <a class="skip-link" href="#konten">Lewati ke konten utama</a>
+    <!-- Header dan navigasi -->
+    <header class="site-header">
+      <nav class="nav" aria-label="Navigasi utama">
+        <a class="brand" href="index.html">Jenggot Vapestore Sragi</a>
 
-  <!-- Header dan navigasi -->
-  <header class="site-header">
-    <nav class="nav" aria-label="Navigasi utama">
-      <a class="brand" href="index.html">Jenggot Vapestore Sragi</a>
+        <ul>
+          <li>
+            <a href="index.html">Beranda</a>
+          </li>
+          <li>
+            <a href="tentang.html">Tentang Kami</a>
+          </li>
+          <li>
+            <a href="produk.html">Produk</a>
+          </li>
+          <li>
+            <a href="galeri.html" aria-current="page">Galeri</a>
+          </li>
+          <li>
+            <a href="kontak.html">Kontak</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-      <ul>
-        <li>
-          <a href="index.html">Beranda</a>
-        </li>
+    <!-- Konten utama -->
+    <main id="konten" class="page">
+      <h1>Galeri</h1>
 
-        <li>
-          <a href="tentang.html">Tentang Kami</a>
-        </li>
+      <!-- Foto produk -->
+      <section aria-labelledby="produk-galeri">
+        <h2 id="produk-galeri">Foto Produk Liquid</h2>
 
-        <li>
-          <a href="produk.html">Produk</a>
-        </li>
+        <div class="gallery-grid">
+          <figure>
+            <img
+              src="assets/images/liquid-foom-icestrawberry.jpeg"
+              width="1080"
+              height="1080"
+              loading="lazy"
+              alt="Liquid Foom Ice Strawberry"
+            />
+            <figcaption>Liquid Foom Ice Strawberry</figcaption>
+          </figure>
 
-        <li>
-          <a aria-current="page" href="galeri.html">Galeri</a>
-        </li>
+          <figure>
+            <img
+              src="assets/images/liquid-foom-icemango.jpeg"
+              width="1080"
+              height="1080"
+              loading="lazy"
+              alt="Liquid Foom Ice Mango"
+            />
+            <figcaption>Liquid Foom Ice Mango</figcaption>
+          </figure>
 
-        <li>
-          <a href="kontak.html">Kontak</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+          <figure>
+            <img
+              src="assets/images/liquid-foom-icelychee.jpeg"
+              width="900"
+              height="900"
+              loading="lazy"
+              alt="Liquid Foom Ice Lychee"
+            />
+            <figcaption>Liquid Foom Ice Lychee</figcaption>
+          </figure>
+        </div>
+      </section>
 
-  <!-- Konten utama -->
-  <main id="konten" class="page">
+      <!-- Audio -->
+      <section aria-labelledby="audio-title">
+        <h2 id="audio-title">Nada Penanda Kedai</h2>
 
-    <h1>Galeri</h1>
+        <p id="audio-note">
+          Audio penanda suasana kedai Jenggot Vapestore Sragi.
+        </p>
 
-    <!-- Foto produk -->
-    <section aria-labelledby="produk-galeri">
-      <h2 id="produk-galeri">Foto Produk Liquid</h2>
+        <audio controls aria-describedby="audio-note">
+          <source
+            src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA="
+            type="audio/wav"
+          />
+          Browser Anda tidak mendukung pemutar audio.
+        </audio>
+      </section>
+    </main>
 
-      <div class="gallery-grid">
-
-        <!-- Liquid Foom Ice Strawberry -->
-        <figure>
-          <img
-            src="assets/images/liquid-foom-icestrawberry.jpeg"
-            alt="Liquid Foom Ice Strawberry"
-          >
-          <figcaption>Liquid Foom Ice Strawberryl</figcaption>
-        </figure>
-
-        <!-- Liquid Foom Ice Mango -->
-        <figure>
-          <img
-            src="assets/images/liquid-foom-icemango.jpeg"
-            alt="Liquid Foom Ice Mango"
-          >
-          <figcaption>Liquid Foom Ice Mango</figcaption>
-        </figure>
-
-        <!-- Liquid Foom Ice Lychee -->
-        <figure>
-          <img
-            src="assets/images/liquid-foom-icelychee.jpeg"
-            alt="Liquid Foom Ice Lychee"
-          >
-          <figcaption>Liquid Foom Ice Lychee</figcaption>
-        </figure>
-
-      </div>
-    </section>
-
-    <!-- Audio -->
-    <section aria-labelledby="audio-title">
-      <h2 id="audio-title">Nada Penanda Kedai</h2>
-
-      <p id="audio-note">
-        Audio penanda suasana kedai Jenggot Vapestore Sragi.
-      </p>
-
-      <audio controls aria-describedby="audio-note">
-        <source
-          src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA="
-          type="audio/wav"
-        >
-
-        Browser Anda tidak mendukung pemutar audio.
-      </audio>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>&copy; 2026 Jenggot Vapestore Sragi</p>
-  </footer>
-
-</body>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>&copy; 2026 Jenggot Vapestore Sragi</p>
+    </footer>
+  </body>
 </html>

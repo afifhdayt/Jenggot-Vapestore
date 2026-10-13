@@ -1,167 +1,141 @@
 <!doctype html>
 <html lang="id">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Produk - Jenggot Vapestore Sragi</title>
-  <link rel="stylesheet" href="css/style.css">
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Produk - Jenggot Vapestore Sragi</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
-<body>
-  <!-- Skip link -->
-  <a class="skip-link" href="#konten">Lewati ke konten utama</a>
+  <body>
+    <!-- Skip link -->
+    <a class="skip-link" href="#konten">Lewati ke konten utama</a>
 
-  <!-- Header dan navigasi -->
-  <header class="site-header">
-    <nav class="nav" aria-label="Navigasi utama">
-      <a class="brand" href="index.html">Jenggot Vapestore Sragi</a>
+    <!-- Header dan navigasi -->
+    <header class="site-header">
+      <nav class="nav" aria-label="Navigasi utama">
+        <a class="brand" href="index.html">Jenggot Vapestore Sragi</a>
 
-      <ul>
-        <li>
-          <a href="index.html">Beranda</a>
-        </li>
-        <li>
-          <a href="tentang.html">Tentang Kami</a>
-        </li>
-        <li>
-          <a aria-current="page" href="produk.html">Produk</a>
-        </li>
-        <li>
-          <a href="galeri.html">Galeri</a>
-        </li>
-        <li>
-          <a href="kontak.html">Kontak</a>
-        </li>
-      </ul>
-    </nav>
-  </header>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="produk.html" aria-current="page">Produk</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="kontak.html">Kontak</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <!-- Konten utama -->
-  <main id="konten" class="page">
+    <!-- Konten utama -->
+    <main id="konten" class="page">
+      <h1>Produk Jenggot Vapestore Sragi</h1>
 
-    <h1>Produk Jenggot Vapestore Sragi</h1>
+      <!-- Produk pilihan -->
+      <section aria-labelledby="produk-pilihan-title">
+        <h2 id="produk-pilihan-title">Produk Pilihan</h2>
 
-    <!-- Produk Pilihan -->
-    <section aria-labelledby="produk-pilihan-title">
-      <h2 id="produk-pilihan-title">Produk Pilihan</h2>
+        <div class="product-grid">
+          <article class="product-card">
+            <span class="product-badge">Terlaris</span>
+            <h3>Foom Ice Strawberry</h3>
+            <p>Produk dengan varian rasa strawberry.</p>
+            <p class="price">Rp100.000</p>
 
-      <div class="product-grid">
+            <div class="card-actions">
+              <a href="#harga-title">Lihat tabel harga</a>
+              <a href="galeri.html">Lihat galeri</a>
+            </div>
+          </article>
 
-        <article class="product-card">
-          <span class="product-badge">Terlaris</span>
+          <article class="product-card">
+            <span class="product-badge">Pilihan</span>
+            <h3>Foom Ice Mango</h3>
+            <p>Produk dengan varian rasa mango.</p>
+            <p class="price">Rp100.000</p>
 
-          <h3>Foom Ice Strawberry</h3>
+            <div class="card-actions">
+              <a href="#harga-title">Lihat tabel harga</a>
+              <a href="galeri.html">Lihat galeri</a>
+            </div>
+          </article>
 
-          <p>
-            Produk dengan varian rasa strawberry.
-          </p>
+          <article class="product-card">
+            <span class="product-badge">Pilihan</span>
+            <h3>Foom Ice Lychee</h3>
+            <p>Produk dengan varian rasa lychee.</p>
+            <p class="price">Rp100.000</p>
 
-          <p class="price">Rp100.000</p>
+            <div class="card-actions">
+              <a href="#harga-title">Lihat tabel harga</a>
+              <a href="galeri.html">Lihat galeri</a>
+            </div>
+          </article>
+        </div>
+      </section>
 
-          <div class="card-actions">
-            <a href="#harga-title">Lihat tabel harga</a>
-            <a href="galeri.html">Lihat galeri</a>
-          </div>
-        </article>
+      <!-- Daftar harga -->
+      <section aria-labelledby="harga-title">
+        <h2 id="harga-title">Daftar Harga</h2>
 
-        <article class="product-card">
-          <span class="product-badge">Pilihan</span>
+        <div
+          class="table-scroll"
+          role="region"
+          aria-labelledby="daftar-harga-caption"
+          tabindex="0"
+        >
+          <table>
+            <caption id="daftar-harga-caption">
+              Daftar harga produk Jenggot Vapestore Sragi
+            </caption>
 
-          <h3>Foom Ice Mango</h3>
+            <thead>
+              <tr>
+                <th scope="col">Produk</th>
+                <th scope="col">Ukuran</th>
+                <th scope="col">Harga</th>
+              </tr>
+            </thead>
 
-          <p>
-            Produk dengan varian rasa mango.
-          </p>
+            <tbody>
+              <tr>
+                <th scope="row">Foom Ice Strawberry</th>
+                <td>30 ml</td>
+                <td>Rp100.000</td>
+              </tr>
+              <tr>
+                <th scope="row">Foom Ice Mango</th>
+                <td>30 ml</td>
+                <td>Rp100.000</td>
+              </tr>
+              <tr>
+                <th scope="row">Foom Ice Lychee</th>
+                <td>30 ml</td>
+                <td>Rp100.000</td>
+              </tr>
+              <tr>
+                <th scope="row">Foom Ice Apple</th>
+                <td>30 ml</td>
+                <td>Rp100.000</td>
+              </tr>
+              <tr>
+                <th scope="row">Takis Strawberry Guava</th>
+                <td>30 ml</td>
+                <td>Rp80.000</td>
+              </tr>
+              <tr>
+                <th scope="row">Takis Grape Apple</th>
+                <td>30 ml</td>
+                <td>Rp80.000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
 
-          <p class="price">Rp100.000</p>
-
-          <div class="card-actions">
-            <a href="#harga-title">Lihat tabel harga</a>
-            <a href="galeri.html">Lihat galeri</a>
-          </div>
-        </article>
-
-        <article class="product-card">
-          <span class="product-badge">Pilihan</span>
-
-          <h3>Foom Ice Lychee</h3>
-
-          <p>
-            Produk dengan varian rasa lychee.
-          </p>
-
-          <p class="price">Rp100.000</p>
-
-          <div class="card-actions">
-            <a href="#harga-title">Lihat tabel harga</a>
-            <a href="galeri.html">Lihat galeri</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Daftar harga -->
-    <section aria-labelledby="harga-title">
-      <h2 id="harga-title">Daftar Harga</h2>
-
-      <table>
-        <caption>Daftar harga produk Jenggot Vapestore Sragi</caption>
-
-        <thead>
-          <tr>
-            <th scope="col">Produk</th>
-            <th scope="col">Ukuran</th>
-            <th scope="col">Harga</th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <tr>
-            <th scope="row">Foom Ice Strawberry</th>
-            <td>30 ml</td>
-            <td>Rp100.000</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Foom Ice Mango</th>
-            <td>30 ml</td>
-            <td>Rp100.000</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Foom Ice Lychee</th>
-            <td>30 ml</td>
-            <td>Rp100.000</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Foom Ice Apple</th>
-            <td>30 ml</td>
-            <td>Rp100.000</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Takis Strawberry Guava</th>
-            <td>30 ml</td>
-            <td>Rp80.000</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Takis Grape Apple</th>
-            <td>30 ml</td>
-            <td>Rp80.000</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <p>&copy; 2026 Jenggot Vapestore Sragi</p>
-  </footer>
-
-</body>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>&copy; 2026 Jenggot Vapestore Sragi</p>
+    </footer>
+  </body>
 </html>
