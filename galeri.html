@@ -11,29 +11,31 @@
     <!-- Skip link -->
     <a class="skip-link" href="#konten">Lewati ke konten utama</a>
 
-    <!-- Header dan navigasi -->
-    <header class="site-header">
+    <!-- Header dan navigasi -->   
+     <header class="site-header">
       <nav class="nav" aria-label="Navigasi utama">
         <a class="brand" href="index.html">Jenggot Vapestore Sragi</a>
 
-        <ul>
-          <li>
-            <a href="index.html">Beranda</a>
-          </li>
-          <li>
-            <a href="tentang.html">Tentang Kami</a>
-          </li>
-          <li>
-            <a href="produk.html">Produk</a>
-          </li>
-          <li>
-            <a href="galeri.html" aria-current="page">Galeri</a>
-          </li>
-          <li>
-            <a href="kontak.html">Kontak</a>
-          </li>
-        </ul>
-      </nav>
+    <details class="nav-menu">
+      <summary aria-label="Buka atau tutup menu navigasi">
+        <span class="hamburger-icon" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+        <span class="menu-label">Menu</span>
+      </summary>
+
+      <ul>
+        <li><a href="index.html">Beranda</a></li>
+        <li><a href="tentang.html">Tentang Kami</a></li>
+        <li><a href="produk.html">Produk</a></li>
+<li><a aria-current="page" href="galeri.html">Galeri</a></li>
+<li><a href="kontak.html">Kontak</a></li>
+    </details>
+  </nav>
+</header>
+
     </header>
 
     <!-- Konten utama -->
@@ -88,13 +90,12 @@
           Audio penanda suasana kedai Jenggot Vapestore Sragi.
         </p>
 
-        <audio controls aria-describedby="audio-note">
-          <source
-            src="data:audio/wav;base64,UklGRiQAAABXQVZFZm10IBAAAAABAAEAESsAACJWAAACABAAZGF0YQAAAAA="
-            type="audio/wav"
-          />
-          Browser Anda tidak mendukung pemutar audio.
-        </audio>
+        
+<audio controls aria-describedby="audio-note">
+  <source src="assets/audio/menetap-lebih-lama.mp3" type="audio/mpeg" />
+  Browser Anda tidak mendukung pemutar audio.
+</audio>
+
       </section>
     </main>
 

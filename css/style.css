@@ -1,3 +1,4 @@
+
 :root {
   --color-primary: #d63384;
   --color-primary-strong: #b02a6f;
@@ -52,7 +53,7 @@ img {
   border-radius: var(--radius-sm);
 }
 
-/* Link */
+/* Link umum */
 a {
   color: var(--color-primary);
 }
@@ -72,6 +73,7 @@ a:hover {
   position: absolute;
   top: -5rem;
   left: var(--space-3);
+  z-index: 100;
   padding: var(--space-2) var(--space-3);
   color: var(--color-surface);
   background: var(--color-text);
@@ -108,12 +110,14 @@ a:hover {
   padding-block: var(--space-5);
 }
 
-/* Navigasi mobile-first */
+/* Navigasi utama */
 .nav {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: var(--space-3);
-  align-items: flex-start;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .brand {
@@ -124,41 +128,104 @@ a:hover {
   text-decoration: none;
 }
 
-.nav ul {
+/* Hamburger menu */
+.nav-menu {
+  position: relative;
+  margin-left: auto;
+}
+
+.nav-menu summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  color: var(--color-text);
+  cursor: pointer;
+  list-style: none;
+  border-radius: var(--radius-sm);
+}
+
+.nav-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.hamburger-icon {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
-  flex-wrap: wrap;
-  padding: 0;
+  gap: 5px;
+}
+
+.hamburger-icon span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: currentColor;
+  border-radius: 2px;
+}
+
+.menu-label {
+  font-weight: 700;
+}
+
+/* Daftar menu pada mobile */
+.nav-menu ul {
+  display: none;
   margin: 0;
+  padding: 0.5rem;
   list-style: none;
 }
 
-.nav li {
+.nav-menu[open] ul {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 12rem;
+  padding: 0.5rem;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+}
+
+.nav-menu li {
   margin: 0;
 }
 
-/* Menu navigasi */
-.nav a {
-  color: #000000;
+.nav-menu a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--color-text);
   text-decoration: none;
-}
-
-.nav a:hover {
-  color: var(--color-primary);
-}
-
-.nav a[aria-current="page"] {
-  padding: var(--space-1) var(--space-2);
-  color: #000000;
-  font-weight: 700;
-  text-decoration: none;
-  background: #ffe0ed;
   border-radius: var(--radius-sm);
+}
+
+.nav-menu a:hover {
+  color: var(--color-primary-strong);
+  background: var(--color-surface-soft);
+}
+
+.nav-menu a[aria-current="page"] {
+  color: var(--color-text);
+  font-weight: 700;
+  background: #ffe0ed;
+}
+
+.nav-menu summary:focus-visible,
+.nav-menu a:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
 }
 
 /* Hero */
 .hero {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  align-items: center;
   padding: var(--space-5);
   color: var(--color-surface);
   background: var(--color-primary);
@@ -190,6 +257,12 @@ li {
 
 .hero .eyebrow {
   color: #ffe0ed;
+}
+
+.hero-image {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-md);
 }
 
 .price {
@@ -233,6 +306,18 @@ button:hover {
   padding-left: 1.2rem;
 }
 
+.product-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
 /* Kartu */
 .product-card,
 .media-card,
@@ -246,7 +331,7 @@ form {
   box-shadow: var(--shadow-card);
 }
 
-/* Product Card Flexbox */
+/* Kartu produk dengan Flexbox */
 .product-card {
   display: flex;
   flex-direction: column;
@@ -330,7 +415,7 @@ th {
   background: var(--color-surface-soft);
 }
 
-/* Tabel yang bisa digeser pada layar kecil */
+/* Tabel yang dapat digeser pada layar kecil */
 .table-scroll {
   max-width: 100%;
   overflow-x: auto;
@@ -400,31 +485,8 @@ audio {
   border-radius: var(--radius-sm);
 }
 
-/* Layout mobile-first */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-4);
-  align-items: center;
-}
-
-.hero-image {
-  width: 100%;
-  border-radius: var(--radius-md);
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-3);
-}
-
 /* Tablet kecil: mulai 42rem */
 @media (min-width: 42rem) {
-  .nav ul {
-    flex-direction: row;
-  }
-
   .gallery-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -432,10 +494,38 @@ audio {
 
 /* Tablet: mulai 48rem */
 @media (min-width: 48rem) {
+  .nav {
+    flex-wrap: nowrap;
+  }
+
+  .nav-menu {
+    margin-left: 0;
+  }
+
+  .nav-menu summary {
+    display: none;
+  }
+
+  .nav-menu ul,
+  .nav-menu[open] ul {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+    min-width: 0;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
   .hero {
     grid-template-columns: 1.2fr 0.8fr;
   }
 
+  .product-list,
   .product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -444,12 +534,123 @@ audio {
 /* Desktop: mulai 60rem */
 @media (min-width: 60rem) {
   .nav {
-    flex-direction: row;
-    align-items: center;
     justify-content: space-between;
   }
 
   .product-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+
+/* Tombol hamburger yang lebih menarik */
+.nav-menu summary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
+  background: var(--color-primary);
+  border: 0;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-menu summary:hover {
+  color: #ffffff;
+  background: var(--color-primary-strong);
+  transform: translateY(-2px);
+}
+
+.nav-menu summary:active {
+  transform: translateY(0);
+}
+
+.nav-menu .hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 24px;
+  height: 24px;
+}
+
+.nav-menu .hamburger-icon span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: #ffffff;
+  border-radius: 999px;
+  transition:
+    width 0.2s ease,
+    transform 0.2s ease;
+}
+
+.nav-menu summary:hover .hamburger-icon span:nth-child(2) {
+  width: 16px;
+}
+
+.nav-menu[open] summary {
+  background: var(--color-primary-strong);
+}
+
+.nav-menu summary:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 3px;
+}
+
+/* Daftar menu */
+.nav-menu > ul {
+  display: none;
+}
+
+.nav-menu[open] > ul {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 12rem;
+  margin: 0;
+  padding: 0.5rem;
+  list-style: none;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.nav-menu > ul a {
+  display: block;
+  padding: 0.65rem 0.75rem;
+  color: var(--color-text);
+  text-decoration: none;
+  border-radius: var(--radius-sm);
+}
+
+.nav-menu > ul a:hover {
+  color: var(--color-primary-strong);
+  background: var(--color-surface-soft);
+}
+
+/* Kurangi animasi jika pengguna memilihnya */
+@media (prefers-reduced-motion: reduce) {
+  .nav-menu summary,
+  .nav-menu .hamburger-icon span {
+    transition: none;
   }
 }

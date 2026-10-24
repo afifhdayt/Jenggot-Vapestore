@@ -14,25 +14,39 @@
     <!-- Header dan navigasi -->
     <header class="site-header">
       <nav class="nav" aria-label="Navigasi utama">
-        <a class="brand" href="index.html">Jenggot Vapestore Sragi</a>
+        <a class="brand" href="index.html">
+          Jenggot Vapestore Sragi
+        </a>
 
-        <ul>
-          <li>
-            <a aria-current="page" href="index.html">Beranda</a>
-          </li>
-          <li>
-            <a href="tentang.html">Tentang Kami</a>
-          </li>
-          <li>
-            <a href="produk.html">Produk</a>
-          </li>
-          <li>
-            <a href="galeri.html">Galeri</a>
-          </li>
-          <li>
-            <a href="kontak.html">Kontak</a>
-          </li>
-        </ul>
+        <!-- Hamburger menu -->
+        <details class="nav-menu">
+          <summary aria-label="Buka atau tutup menu navigasi">
+            <span class="hamburger-icon" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+            <span class="menu-label">Menu</span>
+          </summary>
+
+          <ul>
+            <li>
+              <a aria-current="page" href="index.html">Beranda</a>
+            </li>
+            <li>
+              <a href="tentang.html">Tentang Kami</a>
+            </li>
+            <li>
+              <a href="produk.html">Produk</a>
+            </li>
+            <li>
+              <a href="galeri.html">Galeri</a>
+            </li>
+            <li>
+              <a href="kontak.html">Kontak</a>
+            </li>
+          </ul>
+        </details>
       </nav>
     </header>
 
@@ -55,7 +69,7 @@
           </button>
         </div>
 
-        <!-- Gambar hero dengan dimensi intrinsik -->
+        <!-- Gambar hero -->
         <img
           class="hero-image"
           src="assets/images/Liquid.jpeg"
@@ -73,7 +87,8 @@
           <article class="product-card">
             <h3>Liquid Foom Series</h3>
             <p>
-              Liquid Vape anak muda dengan rasa klasik yang cocok untuk menemani aktivitas.
+              Liquid Vape anak muda dengan rasa klasik
+              yang cocok untuk menemani aktivitas.
             </p>
             <p class="price">Rp100.000</p>
           </article>
@@ -90,7 +105,7 @@
 
       <!-- Lokasi dan jam buka -->
       <section aria-labelledby="info-title">
-        <h2 id="info-title">Lokasi & Jam Buka</h2>
+        <h2 id="info-title">Lokasi &amp; Jam Buka</h2>
 
         <p>
           <strong>Alamat:</strong> Sragi, Pekalongan
@@ -102,6 +117,7 @@
         </p>
       </section>
 
+      <!-- Tautan ke kontak -->
       <p>
         <a href="#kontak">Lihat Kontak</a>
       </p>
@@ -124,10 +140,12 @@
     <!-- Footer -->
     <footer class="site-footer">
       <p>
-        &copy; 2026 Jenggot Vapestore Sragi. Semua hak dilindungi.
+        &copy; 2026 Jenggot Vapestore Sragi.
+        Semua hak dilindungi.
       </p>
     </footer>
 
+    <!-- JavaScript lama tetap dipertahankan -->
     <script src="js/script.js"></script>
   </body>
 </html>
