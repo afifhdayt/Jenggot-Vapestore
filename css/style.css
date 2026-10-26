@@ -654,3 +654,37 @@ audio {
     transition: none;
   }
 }
+
+
+/* P09 - Produk dinamis dari JavaScript */
+.js-product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.js-product-card {
+  padding: 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.875rem;
+  background: var(--color-surface);
+  box-shadow: 0 0.5rem 1.5rem rgb(47 33 24 / 0.1);
+}
+
+.js-product-card h3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.js-product-card .price {
+  font-weight: 700;
+}
+
+.js-product-card .stock-badge {
+  display: inline-block;
+  padding: 0.35rem 0.65rem;
+  border-radius: 0.5rem;
+  background: var(--color-surface-soft);
+  font-size: 0.9rem;
+}

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Produk - Jenggot Vapestore Sragi</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script src="js/app.js" defer></script>
   </head>
 
   <body>
@@ -36,8 +37,6 @@
     </details>
   </nav>
 </header>
-
-    </header>
 
     <!-- Konten utama -->
     <main id="konten" class="page">
@@ -86,6 +85,20 @@
         </div>
       </section>
 
+            <!-- Produk dinamis dari JavaScript -->
+      <section class="section" aria-labelledby="produk-dinamis-title">
+        <div class="section-header">
+          <p class="eyebrow"></p>
+          <h2 id="produk-dinamis-title">Produk dari Data Lokal</h2>
+          <p id="produk-ringkasan">
+            Data produk akan dimuat melalui JavaScript.
+          </p>
+        </div>
+
+        <div id="produk-dinamis" class="js-product-grid"></div>
+      </section>
+
+
       <!-- Daftar harga -->
       <section aria-labelledby="harga-title">
         <h2 id="harga-title">Daftar Harga</h2>
@@ -127,6 +140,16 @@
               </tr>
               <tr>
                 <th scope="row">Foom Ice Apple</th>
+                <td>30 ml</td>
+                <td>Rp100.000</td>
+              </tr>
+              <tr>
+                <th scope="row">BuaQita Strawberry</th>
+                <td>30 ml</td>
+                <td>Rp100.000</td>
+              </tr>
+              <tr>
+                <th scope="row">BuaQita Mango</th>
                 <td>30 ml</td>
                 <td>Rp100.000</td>
               </tr>
