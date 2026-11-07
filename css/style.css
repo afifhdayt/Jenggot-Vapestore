@@ -1,4 +1,3 @@
-
 :root {
   --color-primary: #d63384;
   --color-primary-strong: #b02a6f;
@@ -135,39 +134,58 @@ a:hover {
 }
 
 .nav-menu summary {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  color: var(--color-text);
+  justify-content: center;
+  gap: 0.6rem;
+  min-height: 44px;
+  padding: 0.65rem 1rem;
+  color: #ffffff;
+  font-weight: 700;
   cursor: pointer;
   list-style: none;
+  background: var(--color-primary);
+  border: 0;
   border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-card);
+  transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
 .nav-menu summary::-webkit-details-marker {
   display: none;
 }
 
+.nav-menu summary:hover {
+  color: #ffffff;
+  background: var(--color-primary-strong);
+}
+
+.nav-menu summary:active {
+  transform: translateY(0);
+}
+
 .hamburger-icon {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 5px;
+  width: 24px;
+  height: 24px;
 }
 
 .hamburger-icon span {
   display: block;
   width: 24px;
   height: 3px;
-  background: currentColor;
-  border-radius: 2px;
+  background: #ffffff;
+  border-radius: 999px;
 }
 
 .menu-label {
   font-weight: 700;
 }
 
-/* Daftar menu pada mobile */
+/* Daftar menu mobile */
 .nav-menu ul {
   display: none;
   margin: 0;
@@ -175,9 +193,9 @@ a:hover {
   list-style: none;
 }
 
-.nav-menu[open] ul {
+.nav-menu[open] > ul {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 0.5rem);
   right: 0;
   z-index: 20;
   display: flex;
@@ -187,7 +205,7 @@ a:hover {
   padding: 0.5rem;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   box-shadow: var(--shadow-card);
 }
 
@@ -197,7 +215,7 @@ a:hover {
 
 .nav-menu a {
   display: block;
-  padding: 0.5rem 0.75rem;
+  padding: 0.65rem 0.75rem;
   color: var(--color-text);
   text-decoration: none;
   border-radius: var(--radius-sm);
@@ -492,33 +510,36 @@ audio {
   }
 }
 
-/* Tablet: mulai 48rem */
+/* Tablet dan desktop: mulai 48rem */
 @media (min-width: 48rem) {
   .nav {
     flex-wrap: nowrap;
   }
 
-  .nav-menu {
-    margin-left: 0;
-  }
-
+  /* Sembunyikan tombol hamburger */
   .nav-menu summary {
     display: none;
   }
 
-  .nav-menu ul,
-  .nav-menu[open] ul {
+  /* Tampilkan semua menu secara horizontal */
+  .nav-menu > ul,
+  .nav-menu:not([open]) > ul {
     position: static;
-    display: flex;
+    display: flex !important;
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
     gap: var(--space-2);
     min-width: 0;
+    margin: 0;
     padding: 0;
     background: transparent;
     border: 0;
     box-shadow: none;
+  }
+
+  .nav-menu {
+    margin-left: 0;
   }
 
   .hero {
@@ -531,7 +552,7 @@ audio {
   }
 }
 
-/* Desktop: mulai 60rem */
+/* Desktop besar: mulai 60rem */
 @media (min-width: 60rem) {
   .nav {
     justify-content: space-between;
@@ -542,121 +563,14 @@ audio {
   }
 }
 
-
-/* Tombol hamburger yang lebih menarik */
-.nav-menu summary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.6rem;
-  min-height: 44px;
-  padding: 0.65rem 1rem;
-  color: #ffffff;
-  font-weight: 700;
-  cursor: pointer;
-  list-style: none;
-  background: var(--color-primary);
-  border: 0;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-card);
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.nav-menu summary::-webkit-details-marker {
-  display: none;
-}
-
-.nav-menu summary:hover {
-  color: #ffffff;
-  background: var(--color-primary-strong);
-  transform: translateY(-2px);
-}
-
-.nav-menu summary:active {
-  transform: translateY(0);
-}
-
-.nav-menu .hamburger-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 24px;
-  height: 24px;
-}
-
-.nav-menu .hamburger-icon span {
-  display: block;
-  width: 24px;
-  height: 3px;
-  background: #ffffff;
-  border-radius: 999px;
-  transition:
-    width 0.2s ease,
-    transform 0.2s ease;
-}
-
-.nav-menu summary:hover .hamburger-icon span:nth-child(2) {
-  width: 16px;
-}
-
-.nav-menu[open] summary {
-  background: var(--color-primary-strong);
-}
-
-.nav-menu summary:focus-visible {
-  outline: 3px solid var(--color-focus);
-  outline-offset: 3px;
-}
-
-/* Daftar menu */
-.nav-menu > ul {
-  display: none;
-}
-
-.nav-menu[open] > ul {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  z-index: 20;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  min-width: 12rem;
-  margin: 0;
-  padding: 0.5rem;
-  list-style: none;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
-}
-
-.nav-menu > ul a {
-  display: block;
-  padding: 0.65rem 0.75rem;
-  color: var(--color-text);
-  text-decoration: none;
-  border-radius: var(--radius-sm);
-}
-
-.nav-menu > ul a:hover {
-  color: var(--color-primary-strong);
-  background: var(--color-surface-soft);
-}
-
 /* Kurangi animasi jika pengguna memilihnya */
 @media (prefers-reduced-motion: reduce) {
-  .nav-menu summary,
-  .nav-menu .hamburger-icon span {
+  .nav-menu summary {
     transition: none;
   }
 }
 
-
-/* P09 - Produk dinamis dari JavaScript */
+/* P09 - Tampilan data dari JavaScript */
 .js-product-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -669,7 +583,7 @@ audio {
   border: 1px solid var(--color-border);
   border-radius: 0.875rem;
   background: var(--color-surface);
-  box-shadow: 0 0.5rem 1.5rem rgb(47 33 24 / 0.1);
+  box-shadow: var(--shadow-card);
 }
 
 .js-product-card h3 {
@@ -687,4 +601,69 @@ audio {
   border-radius: 0.5rem;
   background: var(--color-surface-soft);
   font-size: 0.9rem;
+}
+
+/* Memastikan menu desktop selalu terlihat */
+@media screen and (min-width: 48rem) {
+  nav.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  details.nav-menu {
+    display: block;
+    margin-left: auto;
+  }
+
+  details.nav-menu > summary {
+    display: none !important;
+  }
+
+  details.nav-menu:not([open]) > ul,
+  details.nav-menu > ul {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    position: static;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  details.nav-menu > ul a {
+    display: block;
+  }
+}
+
+/* Perbaikan tampilan menu desktop */
+@media (min-width: 48rem) {
+  .nav-menu summary {
+    display: none !important;
+  }
+
+  .nav-menu[open] > ul,
+  .nav-menu:not([open]) > ul {
+    display: flex !important;
+    position: static !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .nav-menu > ul a {
+    padding: 0.5rem;
+    white-space: nowrap;
+  }
 }
