@@ -433,6 +433,28 @@ th {
   background: var(--color-surface-soft);
 }
 
+/* Menyamakan tampilan semua tabel */
+.tabel-seragam {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.tabel-seragam th,
+.tabel-seragam td {
+  padding: 0.9rem;
+  border: 1px solid #f0b6ce;
+  text-align: left;
+  background: #ffffff;
+}
+
+.tabel-seragam thead th {
+  background: #fff0f6;
+  font-weight: 700;
+}
+
 /* Tabel yang dapat digeser pada layar kecil */
 .table-scroll {
   max-width: 100%;
@@ -666,4 +688,45 @@ audio {
     padding: 0.5rem;
     white-space: nowrap;
   }
+}
+
+/* P11 - Filter kategori produk */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-block: 1rem 1.5rem;
+}
+
+.filter-button {
+  border: 1px solid var(--color-border, #cbd5e1);
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--color-text, #1f2937);
+  padding: 0.65rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filter-button:hover,
+.filter-button:focus-visible {
+  border-color: var(--color-primary, #2563eb);
+  outline: 3px solid rgb(37 99 235 / 20%);
+  outline-offset: 2px;
+}
+
+.filter-button.is-active {
+  background: var(--color-primary, #2563eb);
+  border-color: var(--color-primary, #2563eb);
+  color: #ffffff;
+}
+
+/* Pesan ketika produk tidak ditemukan */
+.empty-state {
+  grid-column: 1 / -1;
+  border: 1px dashed #94a3b8;
+  border-radius: 1rem;
+  padding: 1rem;
+  background: #ffffff;
+  color: #64748b;
 }

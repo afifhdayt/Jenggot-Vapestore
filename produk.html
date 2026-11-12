@@ -92,9 +92,41 @@
 
     <h2 id="produk-dinamis-title">Produk dari Data Lokal</h2>
 
-    <p id="produk-ringkasan">
-      Data produk akan dimuat melalui JavaScript.
+    <p id="produk-status">
+      Produk belum dimuat.
     </p>
+  </div>
+
+  <!-- Tombol filter kategori -->
+  <div class="filter-bar" aria-label="Filter kategori produk">
+    <button type="button" class="filter-button is-active" data-filter="Semua">
+      Semua
+    </button>
+
+    <button type="button" class="filter-button" data-filter="Oxva">
+      Oxva
+    </button>
+
+    <button type="button" class="filter-button" data-filter="Vaporesso">
+      Vaporesso
+    </button>
+
+    <button type="button" class="filter-button" data-filter="Foom">
+      Foom
+    </button>
+
+    <button type="button" class="filter-button" data-filter="Takis">
+      Takis
+    </button>
+
+    <button type="button" class="filter-button" data-filter="BuaQita">
+      BuaQita
+    </button>
+  </div>
+
+  <!-- Tempat produk ditampilkan oleh JavaScript -->
+  <div id="produk-grid" class="product-grid" aria-live="polite"></div>
+</section>
 
     <!-- Produk unggulan dari JavaScript -->
     <p id="produk-unggulan">
@@ -108,7 +140,7 @@
 
       <!-- Daftar harga -->
       <section aria-labelledby="harga-title">
-        <h2 id="harga-title">Daftar Harga</h2>
+        <h2 id="harga-title">Daftar Harga Produk Jenggot Vapestore Sragi</h2>
 
         <div
           class="table-scroll"
@@ -116,9 +148,48 @@
           aria-labelledby="daftar-harga-caption"
           tabindex="0"
         >
-          <table>
+<table class="tabel-seragam">
+    <caption>Daftar produk Vape </caption>
+    <thead>
+      <tr>
+        <th>Produk</th>
+        <th>Series</th>
+        <th>Harga</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Oxva</td>
+        <td>Oxva Xlim Go 2</td>
+        <td>Rp204.000</td>
+      </tr>
+      <tr>
+        <td>Oxva</td>
+        <td>Oxva Xlim Pro 3</td>
+        <td>Rp300.000</td>
+      </tr>
+      <tr>
+        <td>Oxva</td>
+        <td>Oxva Artio Pod Kit</td>
+        <td>Rp250.000</td>
+      </tr>
+      <tr>
+        <td>Vaporesso</td>
+        <td>Vaporesso XROS 5 Nano</td>
+        <td>Rp299.000</td>
+      </tr>
+      <tr>
+        <td>Vaporesso</td>
+        <td>Vaporesso XROS Pro 2</td>
+        <td>Rp350.000</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+          <table class="tabel-seragam">
             <caption id="daftar-harga-caption">
-              Daftar harga produk Jenggot Vapestore Sragi
+              Daftar harga produk Liquid 
             </caption>
 
             <thead>

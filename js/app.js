@@ -1,20 +1,70 @@
 "use strict";
 
-console.log("P09 JavaScript aktif");
+console.log("P11 JavaScript aktif");
 
+// Data produk contoh
 const produkUmkm = [
   {
+    nama: "Oxva Xlim Go 2",
+    kategori: "Oxva",
+    harga: 204000,
+    stok: 3,
+    unggulan: false
+  },
+  {
+    nama: "Oxva Xlim Pro 3",
+    kategori: "Oxva",
+    harga: 300000,
+    stok: 0,
+    unggulan: false
+  },
+  {
+    nama: "Oxva Artio Pod Kit",
+    kategori: "Oxva",
+    harga: 250000,
+    stok: 1,
+    unggulan: false
+  },
+  {
+    nama: "Vaporesso XROS 5 Nano",
+    kategori: "Vaporesso",
+    harga: 299000,
+    stok: 4,
+    unggulan: false
+  },
+  {
+    nama: "Vaporesso XROS Pro 2",
+    kategori: "Vaporesso",
+    harga: 350000,
+    stok: 2,
+    unggulan: false
+  },
+  {
     nama: "Foom Ice Strawberry",
-    kategori: "Foom Ice",
+    kategori: "Foom",
     harga: 100000,
-    stok: 10,
+    stok: 0,
     unggulan: true
   },
   {
     nama: "Foom Ice Mango",
-    kategori: "Foom Ice",
+    kategori: "Foom",
     harga: 100000,
-    stok: 3,
+    stok: 6,
+    unggulan: false
+  },
+  {
+    nama: "Foom Ice Lychee",
+    kategori: "Foom",
+    harga: 100000,
+    stok: 2,
+    unggulan: false
+  },
+  {
+    nama: "Foom Ice Apple",
+    kategori: "Foom",
+    harga: 100000,
+    stok: 9,
     unggulan: false
   },
   {
@@ -23,9 +73,31 @@ const produkUmkm = [
     harga: 80000,
     stok: 0,
     unggulan: false
+  },
+  {
+    nama: "Takis Grape Apple",
+    kategori: "Takis",
+    harga: 80000,
+    stok: 15,
+    unggulan: false
+  },
+  {
+    nama: "BuaQita Strawberry",
+    kategori: "BuaQita",
+    harga: 100000,
+    stok: 2,
+    unggulan: false
+  },
+  {
+    nama: "BuaQita Mango",
+    kategori: "BuaQita",
+    harga: 100000,
+    stok: 8,
+    unggulan: false
   }
 ];
 
+// Format harga rupiah
 function formatRupiah(nilai) {
   return new Intl.NumberFormat("id-ID", {
     style: "currency",
@@ -47,94 +119,103 @@ function statusStok(stok) {
   return { label: "Tersedia", className: "" };
 }
 
-function buatKartuProduk(produk) {
+// DOM Selection
+const produkGrid = document.querySelector("#produk-grid");
+const produkStatus = document.querySelector("#produk-status");
+const tombolFilter = document.querySelectorAll("[data-filter]");
+
+// Membuat elemen kartu produk
+function buatElemenProduk(produk) {
+  const card = document.createElement("article");
+  card.classList.add("product-card");
+
+  const title = document.createElement("h3");
+  title.textContent = produk.nama;
+
+  const category = document.createElement("p");
+  category.classList.add("category-note");
+  category.textContent = produk.kategori;
+
+  const price = document.createElement("p");
+  price.classList.add("price");
+  price.textContent = formatRupiah(produk.harga);
+
+  const stock = document.createElement("span");
   const status = statusStok(produk.stok);
 
-  return `
-    <article class="js-product-card">
-      <p class="eyebrow">${labelKategori(produk.kategori)}</p>
-      <h3>${produk.nama}</h3>
-      <p class="price">${formatRupiah(produk.harga)}</p>
-      <span class="stock-badge ${status.className}">
-        ${status.label}
-      </span>
-    </article>
-  `;
-}
+  stock.classList.add("stock-badge");
 
-// Debugging setiap produk menggunakan forEach
-produkUmkm.forEach((produk) => {
-  console.log(
-    "Debug produk:",
-    produk.nama,
-    "stok:",
-    produk.stok
-  );
-});
-
-// Menampilkan data produk dalam bentuk tabel
-console.table(produkUmkm);
-
-// Menentukan label kategori
-function labelKategori(kategori) {
-  switch (kategori) {
-    case "Foom Ice":
-      return "Foom Ice";
-    case "Takis":
-      return "Takis";
-    default:
-      return "Produk lainnya";
+  if (status.className) {
+    stock.classList.add(status.className);
   }
+
+  stock.textContent = status.label;
+
+  card.append(title, category, price, stock);
+
+  return card;
 }
 
-// Function untuk menampilkan produk
-function renderProduk() {
-  const grid = document.querySelector("#produk-dinamis");
-  const ringkasan = document.querySelector("#produk-ringkasan");
-  const unggulan = document.querySelector("#produk-unggulan");
+// Membuat pesan ketika produk kosong
+function buatEmptyState(kategori) {
+  const empty = document.createElement("p");
 
-  // Memeriksa apakah elemen HTML tersedia
-  if (!grid || !ringkasan || !unggulan) {
-    console.warn("Target render produk belum lengkap.");
+  empty.classList.add("empty-state");
+  empty.textContent =
+    `Belum ada produk pada kategori ${kategori}.`;
+
+  return empty;
+}
+
+// Function rendering produk
+function renderProduk(kategoriAktif = "Semua") {
+  if (!produkGrid || !produkStatus) {
+    console.warn("Target render produk tidak ditemukan.");
     return;
   }
 
-  // Mengambil produk yang memiliki stok
-  const produkTersedia = produkUmkm.filter(
-    (produk) => produk.stok > 0
-  );
+  const produkTampil = kategoriAktif === "Semua"
+    ? produkUmkm
+    : produkUmkm.filter(
+        (produk) => produk.kategori === kategoriAktif
+      );
 
-  // Mencari produk unggulan
-  const produkUnggulan = produkUmkm.find(
-    (produk) => produk.unggulan === true
-  );
+  produkGrid.replaceChildren();
 
-  // Mengubah data menjadi HTML
-  const markupProduk = produkTersedia
-    .map(buatKartuProduk)
-    .join("");
+  if (produkTampil.length === 0) {
+    produkGrid.append(buatEmptyState(kategoriAktif));
+    produkStatus.textContent = "0 produk ditemukan.";
+    return;
+  }
 
-  // Menampilkan produk
-  grid.innerHTML = markupProduk;
+  produkTampil.forEach((produk) => {
+    produkGrid.append(buatElemenProduk(produk));
+  });
 
-  // Menampilkan ringkasan
-  ringkasan.textContent =
-    `${produkTersedia.length} produk tersedia dari ${produkUmkm.length} data.`;
-
-  // Menampilkan produk unggulan
-  unggulan.textContent = produkUnggulan
-    ? `Produk unggulan: ${produkUnggulan.nama}`
-    : "Belum ada produk unggulan.";
-
-  // Menampilkan data untuk debugging
-  console.table(produkUmkm);
+  produkStatus.textContent =
+    `${produkTampil.length} produk ditampilkan.`;
 }
 
-// Menjalankan render ketika HTML selesai dimuat
-document.addEventListener("DOMContentLoaded", renderProduk);
+// Menampilkan produk pertama kali
+renderProduk();
 
+// Event listener tombol filter
+tombolFilter.forEach((tombol) => {
+  tombol.addEventListener("click", (event) => {
+    const tombolAktif = event.currentTarget;
+    const kategori = tombolAktif.dataset.filter;
 
-// Pengaturan hamburger menu berdasarkan ukuran layar
+    tombolFilter.forEach((item) => {
+      item.classList.remove("is-active");
+    });
+
+    tombolAktif.classList.add("is-active");
+
+    renderProduk(kategori);
+  });
+});
+
+// Pengaturan hamburger menu
 const navMenu = document.querySelector(".nav-menu");
 
 if (navMenu) {
@@ -144,9 +225,7 @@ if (navMenu) {
     navMenu.open = desktopView.matches;
   }
 
-  // Atur kondisi awal
   aturNavigasi();
 
-  // Atur kembali ketika ukuran layar berubah
   desktopView.addEventListener("change", aturNavigasi);
 }
